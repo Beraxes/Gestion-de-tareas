@@ -12,28 +12,26 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          Task Manager
-        </Link>
-        {/* No utilizamos collapse para mantener los elementos visibles */}
-        <div className="navbar-nav ms-auto d-flex flex-row">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid d-flex justify-content-between align-items-center">
+        <Link to="/" className="navbar-brand fs-4 fw-bold">Task Manager</Link>
+        <div className="d-flex gap-3">
           {currentUser ? (
             <>
-              <span className="navbar-text me-3">
-                Bienvenido, {currentUser.nombre}
-              </span>
-              <button className="btn btn-outline-danger" onClick={handleLogout}>
+              <span className="text-secondary fs-6 me-2">Bienvenido, {currentUser.nombre}</span>
+              <button
+                onClick={handleLogout}
+                className="btn btn-danger rounded-pill"
+              >
                 Cerrar sesión
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="btn btn-outline-primary me-2">
+              <Link to="/login" className="btn btn-primary rounded-pill">
                 Iniciar sesión
               </Link>
-              <Link to="/register" className="btn btn-outline-success">
+              <Link to="/register" className="btn btn-success rounded-pill">
                 Registrarse
               </Link>
             </>

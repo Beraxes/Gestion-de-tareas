@@ -20,23 +20,21 @@ const Register = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="register-form mt-5">
       <h2>Registro</h2>
-      <form onSubmit={handleRegister}>
+      <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {error && <div className="alert alert-danger">{error}</div>}
         <div className="form-floating mb-3">
           <input
-          placeholder=""
             type="text"
+            placeholder=""
             className="form-control"
             id="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             required
           />
-          <label htmlFor="nombre" className="form-label" >
-            Nombre
-          </label>
+          <label htmlFor="nombre">Nombre</label>
         </div>
         <div className="form-floating mb-3">
           <input
@@ -48,7 +46,7 @@ const Register = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label htmlFor="email" className="form-label">Correo Electrónico</label>
+          <label htmlFor="email">Correo Electrónico</label>
         </div>
         <div className="form-floating mb-3">
           <input
@@ -60,7 +58,7 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <label htmlFor="password" className="form-label">Contraseña</label>
+          <label htmlFor="password">Contraseña</label>
         </div>
         <button type="submit" className="btn btn-primary">
           Registrarse

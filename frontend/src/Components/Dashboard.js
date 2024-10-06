@@ -108,14 +108,14 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
 
       {/* Formulario para agregar tareas */}
-      <form onSubmit={handleAddTask}>
+      <form onSubmit={handleAddTask} className="mb-4">
         <div className="mb-3">
           <label htmlFor="descripcion" className="form-label">
             Descripción de la tarea
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control form-control-lg"
             id="descripcion"
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
@@ -126,7 +126,7 @@ const Dashboard = () => {
             Categoría
           </label>
           <select
-            className="form-select"
+            className="form-select form-select-lg"
             id="categoria"
             value={categoria}
             onChange={(e) => setCategory(e.target.value)}
@@ -136,7 +136,7 @@ const Dashboard = () => {
             <option value="Otros">Otros</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary btn-lg">
           Agregar Tarea
         </button>
       </form>
@@ -144,7 +144,7 @@ const Dashboard = () => {
       {/* Lista de tareas */}
       <div className="mt-4">
         <h2>Mis tareas</h2>
-        <ul className="list-group">
+        <ul className="list-group list-group-flush border rounded">
           {tasks.map((task) => (
             <li
               key={task._id}
@@ -159,23 +159,23 @@ const Dashboard = () => {
                   type="checkbox"
                   checked={task.completada}
                   onChange={() => handleCheckboxChange(task)}
-                  className="me-2"
+                  className="me-2 form-check-input"
                 />
                 {/* Descripción de la tarea */}
                 {editingTaskId === task._id ? (
-                  <form onSubmit={handleSaveEdit}>
+                  <form onSubmit={handleSaveEdit} className="d-flex">
                     <input
                       type="text"
-                      className="form-control"
+                      className="form-control form-control-sm me-2"
                       value={newDescripcion}
                       onChange={(e) => setNewDescripcion(e.target.value)}
                     />
-                    <button type="submit" className="btn btn-success">
+                    <button type="submit" className="btn btn-success btn-sm me-1">
                       Guardar
                     </button>
                     <button
                       type="button"
-                      className="btn btn-secondary"
+                      className="btn btn-secondary btn-sm"
                       onClick={handleCancelEdit}
                     >
                       Cancelar
@@ -188,13 +188,13 @@ const Dashboard = () => {
 
               <div>
                 <button
-                  className="btn btn-primary me-2"
+                  className="btn btn-primary me-2 btn-sm"
                   onClick={() => handleEditClick(task)}
                 >
                   Editar
                 </button>
                 <button
-                  className="btn btn-danger"
+                  className="btn btn-danger btn-sm"
                   onClick={() => handleDeleteClick(task._id)}
                 >
                   Eliminar

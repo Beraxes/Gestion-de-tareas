@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AuthService from '../Utils/AuthService';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css'
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -19,19 +20,35 @@ const Login = () => {
   };
 
   return (
-    
     <div className="container mb-3">
       <br/>
-      <form onSubmit={handleLogin}>
-        <div className="form-floating mb-3">
-          <input type="email" className="form-control" placeholder="" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-          <label htmlFor="email" className="form-label" for="floatingInput">Correo</label>
+      <form onSubmit={handleLogin} className="login-form">
+        <h2 className="text-center mb-4">Iniciar sesión</h2>
+        <div className="mb-3 position-relative">
+          <input
+            type="email"
+            className="form-control form-control-lg"
+            placeholder=""
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <label htmlFor="username" className="floating-label">Correo electrónico</label>
         </div>
-        <div className="form-floating mb-3">
-          <input type="password" className="form-control" placeholder="Password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <label htmlFor="password" className="form-label">Contraseña</label>
+        <div className="mb-3 position-relative">
+          <input
+            type="password"
+            className="form-control form-control-lg"
+            placeholder=""
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <label htmlFor="password" className="floating-label">Contraseña</label>
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn btn-primary w-100">Iniciar sesión</button>
       </form>
     </div>
   );
